@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,7 @@ Route::get('/about', function () {
 });
 
 // Create additional Routes below
+Route::get('/properties/create', [PropertyController::class, 'create']);
+Route::post('/properties', [PropertyController::class, 'store']);
+Route::get('/properties', [DashboardController::class, 'index']);
+Route::get('/properties/{id}', [PropertyController::class, 'show']);
